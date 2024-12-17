@@ -39,6 +39,7 @@ function updateDisplay(){
 
 // Function to handle button clicks
 function handleButtonClick(event) {
+    const value = get.target.textContent;
     //if user enter a number display, if not don't
     if (!isNaN(value)){
         displayValue += value;
@@ -80,5 +81,5 @@ function handleButtonClick(event) {
 }
 
 // Add event listeners to buttons
-const buttons = document.querySelector("button");
+const buttons = document.querySelectorAll("button");
 buttons.forEach(button => button.addEventListener("click", handleButtonClick));
