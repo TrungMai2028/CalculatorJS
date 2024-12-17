@@ -80,4 +80,5 @@ function handleButtonClick(event) {
 }
 
 // Add event listeners to buttons
-
+const buttons = document.querySelector("button");
+buttons.forEach(button => button.addEventListener("click", handleButtonClick));
