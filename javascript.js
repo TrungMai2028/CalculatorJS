@@ -39,7 +39,44 @@ function updateDisplay(){
 
 // Function to handle button clicks
 function handleButtonClick(event) {
-    //if 
+    //if user enter a number display, if not don't
+    if (!isNaN(value)){
+        displayValue += value;
+        updateDisplay();
+    }
+    else if (value === "+", value === "-", value === "*", value === "/"){
+        //if num1 = null, set num1 to displayValue and operator to value
+        if (num1 == null){
+            num1 = displayValue;
+            operator = value;
+            displayValue = "";
+        }
+        // if there is already num1, set to
+        else if (operator){
+            num2 = displayValue;
+            num1 = operation(num1, num2, operator);
+            operator = value; 
+            displayValue = "";
+            updateDisplay();
+        }
+    }
+    else if (value === "="){
+        if (num1 !== null, num2 !== null, operator !== null){
+            num2 = displayValue;
+            displayValue = operation(num1, num2, operator);
+            num1 = null;
+            num2 = null;
+            operator = null;
+            updateDisplay();
+        }
+    }
+    else if (value === "clear"){
+        num1 = null;
+        num2 = null;
+        operator = null;
+        displayValue = null;
+        updateDisplay();
+    }
 }
 
 // Add event listeners to buttons
