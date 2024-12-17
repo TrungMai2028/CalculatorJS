@@ -39,7 +39,7 @@ function updateDisplay(){
 
 // Function to handle button clicks
 function handleButtonClick(event) {
-    const value = get.target.textContent;
+    const value = event.target.textContent;
     //if user enter a number display, if not don't
     if (!isNaN(value)){
         displayValue += value;
