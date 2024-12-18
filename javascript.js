@@ -45,16 +45,16 @@ function handleButtonClick(event) {
         displayValue += value;
         updateDisplay();
     }
-    else if (value === "+", value === "-", value === "*", value === "/"){
+    else if (value === "+" || value === "-" || value === "*" || value === "/"){
         //if num1 = null, set num1 to displayValue and operator to value
         if (num1 == null){
-            num1 = displayValue;
+            num1 = parseFloat(displayValue);
             operator = value;
             displayValue = "";
         }
         // if there is already num1, set to
         else if (operator){
-            num2 = displayValue;
+            num2 = parseFloat(displayValue);
             num1 = operation(num1, num2, operator);
             operator = value; 
             displayValue = "";
@@ -62,9 +62,9 @@ function handleButtonClick(event) {
         }
     }
     else if (value === "="){
-        if (num1 !== null, num2 !== null, operator !== null){
-            num2 = displayValue;
-            displayValue = operation(num1, num2, operator);
+        if (num1 !== null && operator !== null && displayValue !== ""){
+            num2 = parseFloat(displayValue);
+            displayValue = operation(num1, num2, operator).toString();
             num1 = null;
             num2 = null;
             operator = null;
@@ -75,7 +75,7 @@ function handleButtonClick(event) {
         num1 = null;
         num2 = null;
         operator = null;
-        displayValue = null;
+        displayValue = "";
         updateDisplay();
     }
 }
